@@ -7,6 +7,7 @@ export class UsersController {
 
   @Post()
   create(@Body() dto: { email: string; name: string }) {
+    console.log(dto);
     return this.svc.create(dto.email, dto.name);
   }
 

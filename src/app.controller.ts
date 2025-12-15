@@ -1,5 +1,6 @@
 import { Controller, Get, Query } from '@nestjs/common';
 import { AppService } from './app.service';
+import { ForbiddenException } from './exceptions/forbidden.exception';
 
 @Controller()
 export class AppController {
@@ -7,7 +8,8 @@ export class AppController {
 
   @Get()
   getHello(): string {
-    return this.appService.getHello();
+    // return this.appService.getHello();
+    throw new ForbiddenException();
   }
 
   @Get('orders')
